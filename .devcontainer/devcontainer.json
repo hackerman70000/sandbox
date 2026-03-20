@@ -72,5 +72,5 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace",
   "postCreateCommand": "uv run --no-project /opt/post_install.py",
-  "postStartCommand": "sudo tailscaled --tun=userspace-networking & sleep 2 && sudo tailscale up --ssh --authkey=${TAILSCALE_AUTHKEY}"
+  "postStartCommand": "nohup bash /workspace/.devcontainer/start-tailscale.sh > /tmp/tailscale.log 2>&1 &"
 }
